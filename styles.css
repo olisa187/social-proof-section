@@ -1,0 +1,206 @@
+/* importing fonts from fonts.google.com */
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+/* Resets */
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+
+/* custom properties */
+:root{
+	/* primary colors */
+	--clr-Very-Dark-Magenta: hsl(300, 43%, 22%);
+	--clr-Soft-Pink: hsl(333, 80%, 67%);
+
+	/* Neutral colors*/
+	--clr-Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+	--clr-Light-Grayish-Magenta: hsl(300, 24%, 96%);
+	--clr-White: hsl(0, 0%, 100%)
+}
+
+body{
+	font-family: 'Spartan', sans-serif;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	color: var(--clr-Dark-Grayish-Magenta);
+	background: url(images/bg-pattern-top-desktop.svg) no-repeat,
+	var(--clr-White) url(images/bg-pattern-bottom-desktop.svg) right -10px bottom -100px no-repeat;
+}
+
+/* container main */
+.container{
+	max-width: 90em;
+	margin: 0;
+	padding: 1em;
+}
+
+.brand-users{
+	max-width: 71.25em;
+	margin: 8em auto 0 auto;
+}
+
+.brand-users__details{
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+}
+
+.brand-users__details>*:first-child .brand__title{
+	font-size: 2.7em;
+	line-height: 1.0;
+	color: var(--clr-Very-Dark-Magenta);
+	margin-bottom: .5em;
+}
+.brand__description >p{
+	font-size: 0.84375em;
+}
+.brand-users__details>*:last-child{
+	justify-self: center;
+}
+.brand-users__details>*:last-child>*:nth-child(2){
+	margin-left: 4em;
+}
+.brand-users__details>*:last-child>*:last-child{
+	margin-left: 8em;
+}
+
+.brand-users__details>*:last-child .star_rating{
+	width: 90%;
+	display: flex;
+	align-items: flex-end;
+	background-color: var(--clr-Light-Grayish-Magenta);
+	color: var(--clr-Very-Dark-Magenta);
+	font-weight: bold;
+	border-radius: .5em;
+	
+	margin-top: .5em;
+	padding: 1em;
+}
+.brand-users__details>*:last-child .star_rating>*:first-child{
+	margin-right: .9em;
+}
+.brand-users__details>*:last-child .star_rating>*:first-child>*{
+	margin-right: .5em;
+}
+
+/* card section */
+.card-container{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 1.2em;
+
+	/* spacing btween this section and the upper section */
+	margin-top: 3em;
+	height: 15.625em;
+}
+
+/* styling each specific card */
+.card{
+	background-color: var(--clr-Very-Dark-Magenta);
+	color: var(--clr-White);
+	padding: 2em;
+	border-radius: .5em;
+	font-size: .8em;
+	height: fit-content;
+}
+.card .card__header{
+	display: flex;
+	align-items: center;
+	font-size: small;
+	font-weight: none;
+	margin-bottom: 2em;
+}
+.card .card__header .card__name{
+	font-weight: 500;
+}
+
+/* targeting the direct sibling of .card__name */
+.card .card__header .card__name+*{
+	color: var(--clr-Soft-Pink);
+}
+.card .card__header img{
+	border-radius: 50%;
+	margin-right: 2em;
+	width: 3.5em;
+}
+/* makinn card two and three a little bit down */
+.card:nth-of-type(1){
+	align-self: flex-start;
+}
+.card:nth-of-type(2){
+	align-self: center;
+}
+.card:nth-of-type(3){
+	align-self: flex-end;
+	margin-right: 1em;
+}
+/* footer */
+
+footer {
+	font-size: 11px;
+	text-align: center;
+	margin-top: 1.3em;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+	text-decoration: none;
+}
+
+@media (max-width: 800px){
+	:root{
+		font-size: 13px;
+	}
+	.brand-users{
+		max-width: 70em;
+	}
+	.card-container, .card{
+		height: max-content;
+	}
+	.card>*{
+		align-self: center;
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 500px){
+	body{
+		background: url(images/bg-pattern-top-desktop.svg) left -90px top -90px no-repeat,
+		url(images/bg-pattern-bottom-mobile.svg) bottom -100px right -20px no-repeat;
+	}
+	.brand__description{
+		text-align: center;
+	}
+	.brand__description p{
+		font-size: 14px;
+	}
+	.brand-users__details,
+	.brand-users__details>*:last-child .star_rating,
+	.card-container{
+		display: block;
+	}
+	.brand__star_review{
+		width: 90%;
+		margin: 0 auto;
+	}
+	.brand-users__details>*:last-child>*{
+		text-align: center;
+	}
+	.brand-users__details>*:last-child>*:nth-child(2){
+		margin-left: 0;
+	}
+	.brand-users__details>*:last-child>*:last-child{
+		margin-left: 0;
+	}
+	.star_rating{
+		width: 100% !important;
+		margin: 0;
+	}
+	.card{
+		width: 100%;
+	}
+	.card-container > *{
+		margin-top: 2em;
+	}
+}
